@@ -1,0 +1,3 @@
+[submodule "PYMTPro-php"]
+	path = PYMTPro-php
+	url = https://github.com/PYMTGlobal/PYMTPro-php
