@@ -105,9 +105,9 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				$pymt_account_email = get_option("pymt_account_email");
 				$pymt_error_message = get_option("pymt_error_message");
 				if ($pymt_account_email != false) {
-					echo '<p>' . __('Successfully connected PYMTPro.com account', 'PYMTPro-woocommerce') . $pymt_account_email . '</p>';
+					echo '<p>' . __('Successfully connected PYMTPro.com account: ', 'PYMTPro-woocommerce') . $pymt_account_email . '</p>';
 				} elseif ($pymt_error_message != false) {
-					echo '<p>' . __('Could not validate API Key:', 'PYMTPro-woocommerce') . $pymt_error_message . '</p>';
+					echo '<p>' . __('Could not validate API Key: ', 'PYMTPro-woocommerce') . $pymt_error_message . '</p>';
 				}
 				echo '<table class="form-table">';
 				$this->generate_settings_html();
@@ -176,7 +176,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 										 . "</a>"
 					),
 					'apiKey'      => array(
-						'title'       => __('API Key', 'pymtpro-woocommerce'),
+						'title'       => __('API Token', 'pymtpro-woocommerce'),
 						'type'        => 'text',
 						'description' => __('')
 					),
