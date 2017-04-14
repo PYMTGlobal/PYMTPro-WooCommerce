@@ -52,7 +52,7 @@ class PYMTPro_Rpc
         // Headers
         $headers = array('User-Agent: PYMTPro/v2');
 		$headers[] = "Content-Type: application/json";
-		$headers[] = 'Content-Length: ' . strlen($params);
+		$headers[] = 'Content-Length: ' . strlen(json_encode($params));
 		$headers[] = "Accept: application/json";
 
         // Get the authentication class and parse its payload into the HTTP header.
