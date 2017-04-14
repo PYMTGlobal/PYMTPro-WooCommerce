@@ -164,7 +164,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 						'title'       => __('Title', 'woocommerce'),
 						'type'        => 'text',
 						'description' => __('This controls the title which the user sees during checkout.', 'woocommerce'),
-						'default'     => __('ION', 'pymtpro-woocommerce')
+						'default'     => __('PYMTPro-ION', 'pymtpro-woocommerce')
 					),
 					'description' => array(
 						'title'       => __('Description', 'woocommerce'),
