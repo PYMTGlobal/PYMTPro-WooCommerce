@@ -3,7 +3,7 @@
  * Plugin Name: pymtpro-woocommerce
  * Plugin URI: https://github.com/PYMTGlobal/
  * Description: Accept ION and Bitcoin on your WooCommerce-powered website with PYMTPro.
- * Version: 00.01.00
+ * Version: 00.02.00
  * Author: PYMTPro.com
  * Author URI: https://www.PYMTPro.com
  * License: MIT
@@ -54,7 +54,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 		 *
 		 * @class       WC_Gateway_PYMTPro
 		 * @extends     WC_Payment_Gateway
-		 * @version     00.01.00
+		 * @version     00.02.00
 		 * @author      PYMTPro.com
 		 */
 		class WC_Gateway_PYMTPro extends WC_Payment_Gateway
@@ -190,7 +190,6 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 			function process_payment($order_id)
 			{
-
 				require_once(plugin_dir_path(__FILE__) . 'pymtpro' . DIRECTORY_SEPARATOR . 'pymtpro.php');
 				global $woocommerce;
 
@@ -216,10 +215,8 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 					'success_url'        => $success_url,
 					'cancel_url'         => $cancel_url,
 				);
-
 				$api_key    = $this->get_option('apiKey');
 				$api_secret = $this->get_option('apiSecret');
-
 				if ($api_key == '' || $api_secret == '') {
 					$woocommerce->add_error(__('Sorry, but there was an error processing your order. Please try again or try a different payment method. (plugin not configured)', 'pymtpro-woocommerce'));
 					return;
@@ -245,8 +242,8 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 			function check_pymtpro_callback()
 			{
-				$callback_secret = get_option("pymtpro_callback_secret");
-				if ($callback_secret != false && $callback_secret == $_REQUEST['callback_secret']) {
+				$callback_secret = get_option("pymt_callback_secret");
+				if ($callback_secret != false && $callback_secret == $_REQUEST['pymt_secret']) {
 					$post_body = json_decode(file_get_contents("php://input"));
 					if (isset($post_body->order)) {
 						$pymtpro_order = $post_body->order;

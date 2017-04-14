@@ -1,2 +1,2 @@
-PYMTPro-WooCommerce-Gateway  Version: 00.01.05
+PYMTPro-WooCommerce-Gateway  Version: 00.02.00
 ===========================
