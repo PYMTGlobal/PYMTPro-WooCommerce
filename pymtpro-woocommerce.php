@@ -119,7 +119,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 				if (!parent::process_admin_options())
 					return false;
 
-				require_once(plugin_dir_path(__FILE__) . 'PYMTPro-php' . DIRECTORY_SEPARATOR . 'pymtpro.php');
+				require_once(plugin_dir_path(__FILE__) . 'pymtpro' . DIRECTORY_SEPARATOR . 'pymtpro.php');
 
 				$api_key    = $this->get_option('apiKey');
 				$api_secret = $this->get_option('apiSecret');
@@ -191,7 +191,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 			function process_payment($order_id)
 			{
 
-				require_once(plugin_dir_path(__FILE__) . 'PYMTPro-php' . DIRECTORY_SEPARATOR . 'pymtpro.php');
+				require_once(plugin_dir_path(__FILE__) . 'pymtpro' . DIRECTORY_SEPARATOR . 'pymtpro.php');
 				global $woocommerce;
 
 				$order = new WC_Order($order_id);
